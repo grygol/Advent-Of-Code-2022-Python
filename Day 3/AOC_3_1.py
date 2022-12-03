@@ -1,3 +1,10 @@
+def countPriority(num):
+    if 97 <= num <= 122:
+        num -= 96
+    elif 65 <= num <= 90:
+        num -= 38
+    return num
+
 file = open('input_3.txt')
 result = 0
 
@@ -9,11 +16,6 @@ for line in file.readlines():
     for c in leftCompartment:
         if c in rightCompartment:
             num = ord(c)
-            # print(c + " (" + str(num) + ")")
-            if 97 <= num <= 122:
-                num -= 96
-            elif 65 <= num <= 90:
-                num -= 38
-            result += num
+            result += countPriority(num)
             break
 print(result)
